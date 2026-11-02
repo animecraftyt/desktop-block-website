@@ -3,211 +3,404 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#174d83">
 <title>Desktop Block - Official Website</title>
 
 <style>
+:root {
+    color-scheme: light;
+    --ink: #17283b;
+    --blue: #174d83;
+    --sky: #82d7e8;
+    --red: #d92626;
+    --yellow: #ffe66d;
+    --paper: #fffdf1;
+    --line: #9ab6c2;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    background: #ffffff;
-    color: #000000;
-    font-family: Verdana, Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 24px 16px;
+    color: var(--ink);
+    font-family: "Trebuchet MS", Verdana, sans-serif;
+    line-height: 1.65;
+    background-color: #b6eaf0;
+    background-image: radial-gradient(#ffffff 1.2px, transparent 1.2px), linear-gradient(135deg, #a5e3ee, #e0f6c7);
+    background-size: 18px 18px, auto;
+}
+
+a {
+    color: #07599a;
+}
+
+a:hover {
+    color: #b51616;
 }
 
 .container {
-    width: 900px;
-    margin: auto;
-    padding: 20px;
+    width: min(940px, 100%);
+    margin: 0 auto;
+    padding: 12px;
+    border: 1px solid #547f98;
+    background: var(--paper);
+    box-shadow: 7px 7px 0 rgba(23, 40, 59, 0.2);
+}
+
+.topline {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 4px 8px;
+    color: #fff;
+    background: var(--blue);
+    font-size: 12px;
+    font-weight: bold;
 }
 
 header {
+    position: relative;
+    overflow: hidden;
+    padding: 30px 18px 24px;
     text-align: center;
-    padding: 30px 0;
+    color: #fff;
+    background: var(--blue);
+    border: 4px ridge #8ac9d3;
+}
+
+header::after {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    content: "";
+    background: repeating-linear-gradient(0deg, transparent 0 4px, rgba(0, 0, 0, 0.08) 4px 5px);
 }
 
 h1 {
-    color: #cc0000;
-    margin-bottom: 10px;
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    color: var(--yellow);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(2.5rem, 9vw, 4.5rem);
+    line-height: 1.05;
+    text-shadow: 3px 3px 0 #9c2020;
 }
 
-h2 {
-    color: #990000;
-    border-bottom: 2px solid #dddddd;
-    padding-bottom: 5px;
+header p {
+    position: relative;
+    z-index: 1;
+    margin: 12px 0 0;
+}
+
+.ribbon {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin: 10px 0 18px;
+    padding: 8px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: #e8f7f5;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.ribbon a {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+
+.welcome {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 180px;
+    gap: 20px;
+    align-items: center;
+    padding: 16px;
+    border: 2px dashed #d59c29;
+    background: #fff5c9;
+}
+
+.welcome p:last-child {
+    margin-bottom: 0;
+}
+
+.welcome img {
+    display: block;
+    width: 100%;
+    height: 100px;
+    object-fit: contain;
+    background: #090909;
+    border: 3px ridge #859ba8;
 }
 
 .section {
-    margin: 30px 0;
+    margin: 26px 0;
+}
+
+h2 {
+    margin: 0 0 12px;
+    padding: 5px 9px;
+    color: #fff;
+    background: var(--red);
+    border-left: 7px solid #8e1515;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.35rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.gallery figure {
+    margin: 0;
+    padding: 8px;
+    border: 3px ridge #8ba2ac;
+    background: #e6f4f4;
+}
+
+.gallery img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: contain;
+    background: #050505;
+    image-rendering: auto;
+}
+
+.gallery figcaption {
+    padding: 6px 3px 0;
+    text-align: center;
+    font-size: 13px;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 5px 24px;
+    padding-left: 24px;
 }
 
 .download-box {
+    padding: 18px;
     text-align: center;
-    border: 2px solid #cccccc;
-    padding: 20px;
-    margin-top: 15px;
+    border: 4px ridge #e2bc50;
+    background: #fff4bb;
+}
+
+.download-box p {
+    margin: 4px 0;
 }
 
 .download-button {
     display: inline-block;
-    background: #cc0000;
-    color: white;
-    text-decoration: none;
-    padding: 15px 30px;
+    margin-top: 14px;
+    padding: 11px 20px;
+    color: #fff;
+    background: #bf2020;
+    border: 3px outset #ee7770;
     font-weight: bold;
-    margin-top: 10px;
+    text-decoration: none;
 }
 
 .download-button:hover {
-    background: #990000;
-}
-
-.footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    border-top: 1px solid #cccccc;
-    font-size: 14px;
-}
-
-ul {
-    line-height: 1.8;
+    color: #fff;
+    background: #861515;
 }
 
 .version {
-    border-left: 4px solid #cc0000;
-    padding-left: 10px;
-    margin-bottom: 20px;
+    padding: 2px 14px;
+    border-left: 4px solid var(--blue);
+    background: #eef7f7;
+}
+
+.faq p:nth-of-type(odd) {
+    margin-bottom: 2px;
+    color: #8e1515;
+}
+
+.faq p:nth-of-type(even) {
+    margin-top: 2px;
+}
+
+.footer {
+    margin-top: 34px;
+    padding: 14px 8px 4px;
+    text-align: center;
+    border-top: 3px double var(--blue);
+    font-size: 13px;
+}
+
+.footer p {
+    margin: 4px 0;
+}
+
+.footer nav {
+    margin-top: 8px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 10px 7px;
+    }
+
+    .container {
+        padding: 8px;
+        box-shadow: 4px 4px 0 rgba(23, 40, 59, 0.2);
+    }
+
+    .topline {
+        font-size: 10px;
+    }
+
+    header {
+        padding: 24px 12px 20px;
+    }
+
+    .welcome {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome img {
+        height: 135px;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery img {
+        height: 190px;
+    }
+
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
 }
 </style>
-
 </head>
 <body>
-
-<div class="container">
-
-<header>
-    <h1>Desktop Block</h1>
-    <p>A friendly desktop companion made by Team Ruby.</p>
-</header>
-
-<section class="section">
-    <h2>Meet Desktop Block</h2>
-
-    <p>
-        Desktop Block is a virtual desktop companion who lives on your desktop
-        and keeps you company throughout the day.
-    </p>
-
-    <p>
-        Desktop Block can talk, jump around, sleep, remember a name you give
-        him, and share random thoughts while he explores your desktop.
-    </p>
-</section>
-
-<section class="section">
-    <h2>About Desktop Block</h2>
-
-    <p>
-        "I am a block made by Team Ruby, and I was made to be your friend. -desktop block"
-    </p>
-
-    <p>
-        Desktop Block is designed to be a fun companion rather than a productivity
-        tool. He spends most of his time hopping around your desktop, sharing
-        thoughts, and occasionally forgetting his own name.
-    </p>
-</section>
-
-<section class="section">
-    <h2>Features</h2>
-
-    <ul>
-        <li>Speech Bubbles</li>
-        <li>Text-to-Speech Voice</li>
-        <li>Name Memory System</li>
-        <li>Sleep Mode</li>
-        <li>Random Dialogue</li>
-        <li>Desktop Movement</li>
-        <li>Popup Menu</li>
-        <li>Team Ruby Technology</li>
-    </ul>
-</section>
-
-<section class="section">
-    <h2>Download</h2>
-
-    <div class="download-box">
-        <p><strong>Current Version:</strong> 1.0</p>
-        <p><strong>Price:</strong> FREE</p>
-        <p><strong>Platform:</strong> Windows</p>
-
-        <a class="download-button" href="desktop block (ver1).zip">
-            DOWNLOAD DESKTOP BLOCK
-        </a>
+<main class="container">
+    <div class="topline">
+        <span>TEAM RUBY PRESENTS</span>
+        <span>DESKTOP BUDDY SINCE 2026</span>
     </div>
-</section>
 
-<section class="section">
-    <h2>Version History</h2>
+    <header>
+        <h1>Desktop Block</h1>
+        <p>A friendly desktop companion made by Team Ruby.</p>
+    </header>
 
-    <div class="version">
-        <h3>Version 1.0 - Initial Release</h3>
+    <nav class="ribbon" aria-label="Main navigation">
+        <a href="#meet">Home</a>
+        <a href="#pictures">Pictures</a>
+        <a href="#features">Features</a>
+        <a href="#download">Download</a>
+        <a href="#faq">FAQ</a>
+    </nav>
 
-        <ul>
-            <li>Desktop movement system</li>
+    <section class="welcome" id="meet">
+        <div>
+            <h2>Hey there, visitor!</h2>
+            <p>Meet the little block who moved onto your desktop. He can talk, jump around, take a nap, remember a name you give him, and share whatever is on his mind.</p>
+            <p><strong>Pull up a chair. Your new desktop friend is home.</strong></p>
+        </div>
+        <img src="assets/pictures/block_1.png" alt="Desktop Block, a bright red square character with little eyes">
+    </section>
+
+    <section class="section" id="pictures">
+        <h2>Desktop snapshots</h2>
+        <div class="gallery">
+            <figure>
+                <img src="assets/pictures/block_1.png" alt="Desktop Block looking out from a dark desktop">
+                <figcaption>Say hello to your little desktop pal.</figcaption>
+            </figure>
+            <figure>
+                <img src="assets/pictures/block_2.png" alt="Desktop Block menu with options for talking, sleeping, and naming him">
+                <figcaption>Right-click to see what he has to say.</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>About Desktop Block</h2>
+        <p>"I am a block made by Team Ruby, and I was made to be your friend."<br><strong>— Desktop Block</strong></p>
+        <p>Desktop Block is a fun companion rather than a productivity tool. He spends his time hopping around your desktop, sharing thoughts, and occasionally forgetting his own name.</p>
+    </section>
+
+    <section class="section" id="features">
+        <h2>What can he do?</h2>
+        <ul class="feature-list">
             <li>Speech bubbles</li>
-            <li>Text-to-speech support</li>
-            <li>Name memory feature</li>
+            <li>Text-to-speech voice</li>
+            <li>Name memory system</li>
             <li>Sleep mode</li>
-            <li>Random dialogue system</li>
-            <li>Popup menu options</li>
+            <li>Random dialogue</li>
+            <li>Desktop movement</li>
+            <li>Popup menu</li>
+            <li>Made with Team Ruby technology</li>
         </ul>
-    </div>
-</section>
+    </section>
 
-<section class="section">
-    <h2>Frequently Asked Questions</h2>
+    <section class="section" id="download">
+        <h2>Take Desktop Block home</h2>
+        <div class="download-box">
+            <p><strong>Current Version:</strong> 1.0</p>
+            <p><strong>Price:</strong> FREE</p>
+            <p><strong>Platform:</strong> Windows</p>
+            <p><strong>Released:</strong> 2026</p>
+            <p><strong>Developer:</strong> Team Ruby</p>
+            <p><strong>Engine:</strong> Godot 4.7.2</p>
+            <p><strong>File size:</strong> small (35 MB)</p>
+            <a class="download-button" href="desktop block (ver1).zip">DOWNLOAD DESKTOP BLOCK</a>
+        </div>
+    </section>
 
-    <p><strong>What is Desktop Block?</strong></p>
-    <p>
-        Desktop Block is a virtual desktop companion made by Team Ruby.
-    </p>
+    <section class="section">
+        <h2>Version history</h2>
+        <div class="version">
+            <h3>Version 1.0 - Initial Release</h3>
+            <ul>
+                <li>Desktop movement system</li>
+                <li>Speech bubbles and text-to-speech</li>
+                <li>Name memory feature</li>
+                <li>Sleep mode and random dialogue</li>
+                <li>Popup menu options</li>
+            </ul>
+        </div>
+    </section>
 
-    <p><strong>Can Desktop Block remember things?</strong></p>
-    <p>
-        Yes. Desktop Block can remember a name you assign to him and save it
-        between launches.
-    </p>
+    <section class="section faq" id="faq">
+        <h2>Frequently asked questions</h2>
+        <p><strong>What is Desktop Block?</strong></p>
+        <p>A virtual desktop companion made by Team Ruby.</p>
+        <p><strong>Can Desktop Block remember things?</strong></p>
+        <p>Yes. He can remember a name you assign to him between launches.</p>
+        <p><strong>What is Desktop Block's real name?</strong></p>
+        <p>He has forgotten. Maybe you can help him remember.</p>
+        <p><strong>Is Desktop Block free?</strong></p>
+        <p>Yes. Desktop Block is completely free to download.</p>
+        <p><strong>How do I access the menu?</strong></p>
+        <p>Just right-click anywhere while Desktop Block is running.</p>
+        <p><strong>Who made Desktop Block?</strong></p>
+        <p>Desktop Block was created by Team Ruby.</p>
+    </section>
 
-    <p><strong>What is Desktop Block's real name?</strong></p>
-    <p>
-        Desktop Block has forgotten. Maybe you can help him remember.
-    </p>
-
-    <p><strong>Is Desktop Block free?</strong></p>
-    <p>
-        Yes. Desktop Block is completely free to download.
-    </p>
-
-     <p><strong>how do i access the menu?</strong></p>
-    <p>
-        Just right click anywere while the Desktop Block application is open to access the menu.
-    </p>
-    
-    <p><strong>Who made Desktop Block?</strong></p>
-    <p>
-        Desktop Block was created by Team Ruby.
-    </p>
-</section>
-
-<div class="footer">
-    <p>© 2026 Team Ruby</p>
-    <p>Desktop Block Official Website</p>
-    <li><a href="https://animecraftyt.github.io/teamrubysite/" target="_blank">main site</a></li>
-
-</div>
-
-</div>
-
+    <footer class="footer">
+        <p>Copyright 2026 Team Ruby | Desktop Block Official Website</p>
+        <nav aria-label="Footer navigation"><a href="https://animecraftyt.github.io/teamrubysite/" target="_blank" rel="noopener noreferrer">Visit the Team Ruby main site</a></nav>
+        <p>Thanks for stopping by!</p>
+    </footer>
+</main>
 </body>
 </html>
