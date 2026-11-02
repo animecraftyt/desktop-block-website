@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#174d83">
+<link rel="icon" type="image/png" href="assets/pictures/banner_block.png">
 <title>Desktop Block - Official Website</title>
 
 <style>
@@ -81,6 +82,23 @@ header::after {
     pointer-events: none;
     content: "";
     background: repeating-linear-gradient(0deg, transparent 0 4px, rgba(0, 0, 0, 0.08) 4px 5px);
+}
+
+.brand-lockup {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.brand-lockup img {
+    display: block;
+    width: clamp(72px, 20vw, 132px);
+    height: 72px;
+    object-fit: contain;
+    flex: 0 0 auto;
 }
 
 h1 {
@@ -267,6 +285,19 @@ h2 {
         padding: 24px 12px 20px;
     }
 
+    .brand-lockup {
+        gap: 6px;
+    }
+
+    .brand-lockup img {
+        width: clamp(36px, 11vw, 64px);
+        height: 46px;
+    }
+
+    h1 {
+        font-size: clamp(1.5rem, 7vw, 2rem);
+    }
+
     .welcome {
         grid-template-columns: 1fr;
     }
@@ -297,7 +328,11 @@ h2 {
     </div>
 
     <header>
-        <h1>Desktop Block</h1>
+        <div class="brand-lockup">
+            <img src="assets/pictures/banner_block.png" alt="Desktop Block character banner">
+            <h1>Desktop Block</h1>
+            <img src="assets/pictures/banner_block.png" alt="" aria-hidden="true">
+        </div>
         <p>A friendly desktop companion made by Team Ruby.</p>
     </header>
 
